@@ -5,15 +5,14 @@ package notify;
 service NotifyService {
   rpc SendEvent (EventRequest) returns (EventReply);
 }
-
 message EventRequest {
   string type = 1;
   string message = 2;
   string token = 3;
   string senderId = 4;
   string recipientId = 5;
+  string messageId = 6;
 }
-
 message EventReply {
   string status = 1;
   string result = 2;

@@ -30,15 +30,12 @@ function broadcastViaHTTP(data) {
 }
 
 async function sendEvent(call, callback) {
-  const { type, message, token, senderId, recipientId } = call.request;
+  const { type, message, token, senderId, recipientId, messageId } = call.request;
   console.log(`📩 gRPC Received: ${type} from ${senderId} to ${recipientId}: ${message}`);
 
-  // send only to recipient
-  broadcastViaHTTP({ type, message, senderId, recipientId });
+  broadcastViaHTTP({ type, message, senderId, recipientId, messageId });
 
-  if (token) {
-    await sendNotification(token, "New message", message);
-  }
+  if (token) await sendNotification(token, "New message", message);
 
   callback(null, { status: "ok", result: message });
 }
