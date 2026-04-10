@@ -322,7 +322,7 @@ export default function Home() {
 
       {/* ── Heading ── */}
       <div className="page-heading">
-        <h1>Real-Time Communication</h1>
+        <h1>Streamline </h1>
         <p>WebSocket · gRPC · FCM · Next.js</p>
         <div className="stack-badges">
           <span className="badge next">Next.js 16</span>
